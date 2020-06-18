@@ -1,0 +1,30 @@
+<html>
+<head>
+<title> Vidzy app </title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script >
+$(function() {
+    var filterValue = localStorage.getItem("filterValue");
+    if(filterValue != null) {
+        $("select[name=filter]").val(filterValue);
+    }
+
+    $("select[name=filter]").on("change", function() {
+        localStorage.setItem("filterValue", $(this).val());
+    });
+	
+	var searchValue = localStorage.getItem("searchValue");
+    if(searchValue != null) {
+        $("input[name=search]").val(searchValue);
+    }
+
+    $("input[name=search]").on("change", function() {
+        localStorage.setItem("searchValue", $(this).val());
+    });
+})
+</script>
+</head>
+<body>
