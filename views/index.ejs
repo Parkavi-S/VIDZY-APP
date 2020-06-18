@@ -1,0 +1,48 @@
+<% include partials/header %>
+
+
+
+<div class="jumbotron text-center">
+  <h1 class="display-4 text-center">Vidzy Application</h1>
+  <p class="lead text-center">This is the list of most popular videos</p>
+
+<a class="btn btn-primary" href="/videos/new" role="button"> Add a new video</a>
+
+<br/>
+<br/>
+
+	<form action="/videos" method="GET" class="form-inline justify-content-center">
+		<div class="form-group ">
+			<h4>Title:</h4>
+			&nbsp;&nbsp;
+			<input type="text" name ="search" placeholder="movie search" class="form-control">
+			&nbsp;&nbsp;
+			<h4>Genre:</h4>
+			&nbsp;&nbsp;
+			<select name="filter" class="form-control">
+  				<option value="" selected>Any</option>
+  				<option value="Sci-Fi">Sci-Fi</option>
+  				<option value="Drama">Drama</option>
+  				<option value="Fantasy">Fantasy</option>
+				<option value="Animation">Animation</option>
+			</select>
+		&nbsp;&nbsp;
+			<input type="submit" value="Search" class="btn btn-primary">
+		</div>
+	</form>
+</div>
+
+<div class="container">
+
+<div class="row justify-content-center">
+<% videos.forEach(function(video){ %>
+<div class = "sm-col-3">
+ 	<img src="images/<%= video.image %>" style="width:200px; height:200px;" class="img-thumbnail"/>
+ <div class="caption"><a href="videos/<%= video._id %>"><%= video.title %></a>
+ </div>
+ </div>
+<% }); %>
+
+</div>
+</div>
+<% include partials/footer %>
